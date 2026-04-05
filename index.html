@@ -308,7 +308,7 @@
         </table>
     </div>
 
-    <!-- Refresh Data -->
+    <!-- Refresh Data (hidden when served from GitHub Pages — no backend available) -->
     <div class="refresh-section" id="refreshSection">
         <button class="btn-refresh" id="btnRefresh" onclick="triggerRefresh()">
             <span id="refreshIcon">↻</span> Refresh Data from Ekos
@@ -316,6 +316,12 @@
         <div class="refresh-status" id="refreshStatus"></div>
         <pre class="refresh-log" id="refreshLog" style="display:none"></pre>
     </div>
+    <script>
+        // Hide the manual refresh button on the hosted version — only works with local serve.py backend
+        if (location.hostname.endsWith('github.io') || location.hostname.endsWith('purebrewing.org')) {
+            document.getElementById('refreshSection').style.display = 'none';
+        }
+    </script>
 </div>
 
 <script>
