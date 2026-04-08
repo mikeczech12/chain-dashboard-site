@@ -161,16 +161,7 @@
     </style>
 </head>
 <body>
-<div id="authGate" style="display:flex;align-items:center;justify-content:center;height:100vh;background:var(--bg);">
-    <div style="background:var(--card);padding:32px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);text-align:center;max-width:340px;width:90%;">
-        <h2 style="margin-bottom:16px;font-size:18px;">Chain Schematic Set Tracker</h2>
-        <p style="color:var(--muted);font-size:13px;margin-bottom:16px;">Enter password to continue</p>
-        <input id="authInput" type="password" placeholder="Password" style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:6px;font-size:14px;margin-bottom:12px;" autofocus>
-        <button id="authBtn" style="width:100%;padding:10px;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:14px;cursor:pointer;">Enter</button>
-        <p id="authError" style="color:var(--red);font-size:12px;margin-top:8px;display:none;">Incorrect password</p>
-    </div>
-</div>
-<div class="dashboard" style="display:none">
+<div class="dashboard">
     <header>
         <h1>Chain Schematic Set Tracker
             <span>Pure Project — Key Account Dashboard</span>
@@ -344,11 +335,7 @@ const TOTAL_HISTORY_WEEKS = 29; // full data window for gap computation
 <<<<<<< Updated upstream
 const DATA_UPDATED = "2026-04-07T22:24"; // auto-set by scheduled refresh task
 =======
-<<<<<<< Updated upstream
-const DATA_UPDATED = "2026-04-07T22:24"; // auto-set by scheduled refresh task
-=======
 const DATA_UPDATED = "2026-04-08T06:00"; // auto-set by scheduled refresh task
->>>>>>> Stashed changes
 >>>>>>> Stashed changes
 
 // Streak CRM box keys — click store name to open in Streak
@@ -839,9 +826,6 @@ function getRepForStore(storeName) {
 // Format: [storeName, [rain_16wk, tm_16wk, pw_16wk, dd_16wk], [rain_realGap, tm_realGap, pw_realGap, dd_realGap]]
 const RAW = [
 <<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
 ["Albertsons - Downtown SD",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[29,29,1,1,29,29,29,29]],
 ["Albertsons - Oceanside - Marron & College",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,2,0,0,0,2,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[29,29,1,29,29,29,29,29]],
 ["Albertsons - Rancho Bernardo",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],[0,0,0,1,0,2,0,0,1,0,0,0,1,0,0,0],[0,0,0,1,0,1,0,0,1,0,0,0,1,0,0,1],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[29,0,2,0,29,29,29,29]],
@@ -1110,8 +1094,6 @@ const RAW = [
 ["Vista",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[0,0,0,0,0,0,0,0]],
 ["Whittier",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[0,0,0,0,0,0,0,0]],
 ["Yorba Linda",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[0,0,0,0,0,0,0,0]]
-<<<<<<< Updated upstream
-=======
 =======
 ["Albertsons - Downtown SD",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[29,29,1,1,29,29,29]],
 ["Albertsons - Oceanside - Marron & College",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,2,0,0,0,2,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[29,29,1,29,29,29,29]],
@@ -1376,7 +1358,6 @@ const RAW = [
 ["Vista",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[0,0,0,0,0,0,0]],
 ["Whittier",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[0,0,0,0,0,0,0]],
 ["Yorba Linda",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[0,0,0,0,0,0,0]]
->>>>>>> Stashed changes
 >>>>>>> Stashed changes
 ];
 
@@ -1678,9 +1659,6 @@ const STORE_REGIONS = {
 // Last delivery dates per store: [Rain, TM, PW, DD] — from Ekos 6-month report
 const LAST_DELIVERY = {
 <<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
 "Albertsons - Downtown SD":["","","4/2/26","4/2/26","","","",""],
 "Albertsons - Oceanside - Marron & College":["","","3/30/26","","","","",""],
 "Albertsons - Rancho Bernardo":["","4/14/26","3/24/26","4/14/26","","","",""],
@@ -1949,8 +1927,6 @@ const LAST_DELIVERY = {
 "Vista":["","","","","","","",""],
 "Whittier":["","","","","","","",""],
 "Yorba Linda":["","","","","","","",""]
-<<<<<<< Updated upstream
-=======
 =======
 "Albertsons - Downtown SD":["","","4/2/26","4/2/26","","",""],
 "Albertsons - Oceanside - Marron & College":["","","3/30/26","","","",""],
@@ -2215,7 +2191,6 @@ const LAST_DELIVERY = {
 "Vista":["","","","","","",""],
 "Whittier":["","","","","","",""],
 "Yorba Linda":["","","","","","",""]
->>>>>>> Stashed changes
 >>>>>>> Stashed changes
 };
 
@@ -3482,19 +3457,6 @@ function triggerRefresh() {
 
 renderAll();
 renderFreshness();
-</script>
-<script>
-(function(){
-    var k='_cst_auth',p='purechains',gate=document.getElementById('authGate'),dash=document.querySelector('.dashboard');
-    if(localStorage.getItem(k)===p){gate.style.display='none';dash.style.display='';}
-    document.getElementById('authBtn').onclick=check;
-    document.getElementById('authInput').onkeydown=function(e){if(e.key==='Enter')check();};
-    function check(){
-        if(document.getElementById('authInput').value===p){
-            localStorage.setItem(k,p);gate.style.display='none';dash.style.display='';
-        }else{document.getElementById('authError').style.display='block';}
-    }
-})();
 </script>
 </body>
 </html>
