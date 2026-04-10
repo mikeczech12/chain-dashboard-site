@@ -332,7 +332,7 @@ const SKUS = ["Rain", "Tropical Mist", "Pure West", "Diamond Dust", "Rewild", "M
 const SKU_SHORT = ["RN", "TM", "PW", "DD", "RW", "MI", "MD", "WC"];
 const SKU_COLORS = ["#1e3a5f", "#1a5c3a", "#b0b8c1", "#7dd3c8", "#d4a017", "#dc2626", "#ea580c", "#7c3aed"];
 const TOTAL_HISTORY_WEEKS = 29; // full data window for gap computation
-const DATA_UPDATED = "2026-04-10T09:00"; // auto-set by scheduled refresh task
+const DATA_UPDATED = "2026-04-10T10:00"; // auto-set by scheduled refresh task
 
 // Streak CRM box keys — click store name to open in Streak
 const STREAK_PREFIX = "agxzfm1haWxmb29nYWVyMgsSDE9yZ2FuaXphdGlvbiIPcHVyZWJyZXdpbmcub3JnDAsSBENhc2UY";
@@ -2557,8 +2557,21 @@ function processStores(raw, weekCount) {
         const storeChain = CHAIN[name] || '';
         const useLastDeliveryGap = ['BevMo', 'Bristol / Lazy', 'Nugget', 'Total Wine'].includes(storeChain);
         const useMinGap = ['AVP', 'Ralphs'].includes(storeChain);
+        // New placement detection: zero sales in window AND all delivery dates empty or future
+        const today = new Date(DATA_UPDATED.slice(0, 10));
+        const allSkusForNewCheck = schemSkus.length ? schemSkus : skus;
+        const isNewPlacement = totalCases === 0 && allSkusForNewCheck.every(s => {
+            if (!s.lastDelivery || s.lastDelivery === '—') return true;
+            const p = s.lastDelivery.split('/');
+            let y = parseInt(p[2]); if (y < 100) y += 2000;
+            return new Date(y, parseInt(p[0]) - 1, parseInt(p[1])) > today;
+        });
+        const hasOverride = HEALTHY_OVERRIDE && HEALTHY_OVERRIDE[name];
+
         if (PENDING[name]) {
             status = 'pending';
+        } else if (isNewPlacement || (hasOverride && schematicTotalCases === 0)) {
+            status = 'healthy';
         } else if (useLastDeliveryGap) {
             // BevMo / Bristol-Lazy / Nugget: weeks since last delivery to any SKU
             const minGap = skus.length ? Math.min(...skus.map(s => s.trailingGap)) : TOTAL_HISTORY_WEEKS;
@@ -2571,8 +2584,6 @@ function processStores(raw, weekCount) {
             if (minGap >= 12) status = 'critical';
             else if (minGap >= 5) status = 'at-risk';
             else status = 'healthy';
-        } else if (HEALTHY_OVERRIDE && HEALTHY_OVERRIDE[name] && schematicTotalCases === 0) {
-            status = 'healthy';
         } else if (schematicTotalCases === 0 || skusWithNoSales >= Math.ceil(schemSkus.length / 2)) {
             status = 'critical';
         } else if (maxTrailingGap >= 5 || skusWithNoSales >= 1) {
