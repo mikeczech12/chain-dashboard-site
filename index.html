@@ -332,7 +332,7 @@ const SKUS = ["Rain", "Tropical Mist", "Pure West", "Diamond Dust", "Rewild", "M
 const SKU_SHORT = ["RN", "TM", "PW", "DD", "RW", "MI", "MD", "WC"];
 const SKU_COLORS = ["#1e3a5f", "#1a5c3a", "#b0b8c1", "#7dd3c8", "#d4a017", "#dc2626", "#ea580c", "#7c3aed"];
 const TOTAL_HISTORY_WEEKS = 29; // full data window for gap computation
-const DATA_UPDATED = "2026-04-09T17:00"; // auto-set by scheduled refresh task
+const DATA_UPDATED = "2026-04-10T06:00"; // auto-set by scheduled refresh task
 
 // Streak CRM box keys — click store name to open in Streak
 const STREAK_PREFIX = "agxzfm1haWxmb29nYWVyMgsSDE9yZ2FuaXphdGlvbiIPcHVyZWJyZXdpbmcub3JnDAsSBENhc2UY";
@@ -695,17 +695,17 @@ const STREAK_METRICS = {
 "Nugget Market - Town Center":["3402.90","12",false],
 "Nugget Market - Vacaville":["1238.10","5",false],
 "Orange":["1750.50","9",false],
-"Pacific Beach":["5793.00","23",false],
+"Pacific Beach":["5959.20","23",false],
 "Pavilions - Carlsbad":["3607.50","21",false],
 "Pavilions - Hillcrest":["1781.10","11",false],
 "Pavilions - La Jolla":["881.40","5",false],
-"Pavilions - Valley Centre Dr":["1226.40","7",false],
+"Pavilions - Valley Centre Dr":["1405.20","7",false],
 "Poway":["4949.40","27",false],
 "Ralphs - Carlsbad":["7410.60","40",false],
 "Ralphs - Carmel Mountain":["2901.60","21",false],
 "Ralphs - Del Mar":["3210.00","22",false],
 "Ralphs - Encinitas Bch":["2337.60","19",false],
-"Ralphs - La Jolla":["4113.60","29",false],
+"Ralphs - La Jolla":["4258.80","29",false],
 "Ralphs - Mission Valley":["3046.80","20",false],
 "Ralphs - Rancho Bernardo":["2609.10","20",false],
 "Rancho Santa Fe":["6547.20","33",false],
@@ -713,7 +713,7 @@ const STREAK_METRICS = {
 "San Diego - Genesse":["7443.60","39",false],
 "San Marcos":["7484.70","36",false],
 "Santee":["5841.30","29",false],
-"Solana Beach":["5803.50","26",false],
+"Solana Beach":["6021.30","26",false],
 "Trader Joe's - Carlsbad":["8733.30","26",false],
 "Trader Joe's - Carmel Mountain":["3780.60","14",false],
 "Trader Joe's - Chula Vista":["1149.00","4",false],
@@ -740,14 +740,14 @@ const STREAK_METRICS = {
 "Vons - Black Mountain Rd":["1933.20","10",false],
 "Vons - Carlsbad - El Camino Real":["400.80","2",false],
 "Vons - Carlsbad - La Costa":["4247.10","26",false],
-"Vons - Carmel Mountain Rd":["532.20","2",false],
+"Vons - Carmel Mountain Rd":["711.00","2",false],
 "Vons - Coronado":["1143.30","6",false],
 "Vons - Encinitas - El Camino Real":["1134.90","5",false],
 "Vons - Encinitas - Santa Fe":["2595.30","19",false],
 "Vons - La Mesa":["1573.50","8",false],
 "Vons - Midway Dr":["873.00","5",false],
 "Vons - Oceanside":["2100.90","15",false],
-"Vons - Regents Rd":["1563.00","9",false],
+"Vons - Regents Rd":["1750.20","9",false],
 "Vons - San Diego - 30th St":["473.40","2",false],
 "Vons - San Diego - Balboa Ave":["255.60","2",false],
 "Vons - Scripps Ranch":["2868.30","15",false],
@@ -755,7 +755,7 @@ const STREAK_METRICS = {
 "Vons - Truxtun Rd":["787.80","5",false],
 "Whole Foods - Arroyo":["1101.30","10",true],
 "Whole Foods - Brea":["1591.50","16",false],
-"Whole Foods - Brentwood":["1826.10","20",false],
+"Whole Foods - Brentwood":["1734.60","19",false],
 "Whole Foods - Brookhurst":["2239.80","7",true],
 "Whole Foods - Culver City":["3820.30","17",false],
 "Whole Foods - Downtown LA":["2482.20","16",false],
@@ -794,7 +794,7 @@ const STREAK_METRICS = {
 "Whole Foods - Woodland Hills":["1113.00","10",false],
 "Whole Foods Market - Del Mar":["16394.40","50",false],
 "Whole Foods Market - Hillcrest":["7942.50","42",false],
-"Whole Foods Market - La Jolla":["11559.00","54",false]
+"Whole Foods Market - La Jolla":["11964.00","54",false]
 };
 
 // Sales rep → store mapping for Slack routing
@@ -1531,11 +1531,11 @@ const LAST_DELIVERY = {
 "Orange":["1/14/26","1/14/26","3/4/26","3/4/26","","","",""],
 "Pacific Beach":["4/16/26","2/5/26","4/1/26","4/16/26","","","",""],
 "Pavilions - Carlsbad":["","3/10/26","3/24/26","","","","",""],
-"Pavilions - Hillcrest":["","4/8/26","2/12/26","","","","",""],
+"Pavilions - Hillcrest":["","4/9/26","2/12/26","","","","",""],
 "Pavilions - La Jolla":["","","3/20/26","3/20/26","","","",""],
 "Pavilions - San Clemente - Ave Pico":["","4/17/26","4/17/26","","","","",""],
 "Pavilions - Valley Centre Dr":["","","4/16/26","4/16/26","","","",""],
-"Point Loma":["4/8/26","4/8/26","4/8/26","4/8/26","","","",""],
+"Point Loma":["4/9/26","4/9/26","4/9/26","4/9/26","","","",""],
 "Poway":["4/8/26","3/10/26","4/8/26","4/8/26","","","",""],
 "Ralphs - Carlsbad":["3/31/26","4/7/26","4/7/26","","","","",""],
 "Ralphs - Carmel Mountain":["1/7/26","2/17/26","2/17/26","","","","",""],
@@ -1592,7 +1592,7 @@ const LAST_DELIVERY = {
 "Tustin - Holt":["12/3/25","12/17/25","3/11/26","2/4/26","","","",""],
 "Tustin - Jamboree":["4/1/26","2/4/26","3/11/26","4/8/26","","","",""],
 "University City":["3/12/26","3/25/26","4/2/26","3/25/26","","","",""],
-"Vons - Adams Ave":["","4/2/26","4/8/26","4/8/26","","","",""],
+"Vons - Adams Ave":["","4/2/26","4/9/26","4/9/26","","","",""],
 "Vons - Bernardo Plaza":["","","4/8/26","4/8/26","","","",""],
 "Vons - Black Mountain Rd":["","","4/14/26","4/14/26","","","",""],
 "Vons - Carlsbad - El Camino Real":["","3/30/26","4/17/26","","","","",""],
@@ -1605,7 +1605,7 @@ const LAST_DELIVERY = {
 "Vons - Midway Dr":["","","12/18/25","2/5/26","","","",""],
 "Vons - Oceanside":["","1/29/26","3/3/26","","","","",""],
 "Vons - Regents Rd":["","4/1/26","12/19/25","4/16/26","","","",""],
-"Vons - San Diego - 30th St":["","4/8/26","4/8/26","","","","",""],
+"Vons - San Diego - 30th St":["","4/9/26","4/9/26","","","","",""],
 "Vons - San Diego - Balboa Ave":["","","3/19/26","","","","",""],
 "Vons - Scripps Ranch":["","3/31/26","2/26/26","3/31/26","","","",""],
 "Vons - Solana Beach":["","4/3/26","4/3/26","3/24/26","","","",""],
