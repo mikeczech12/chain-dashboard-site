@@ -2557,14 +2557,17 @@ function processStores(raw, weekCount) {
         const storeChain = CHAIN[name] || '';
         const useLastDeliveryGap = ['BevMo', 'Bristol / Lazy', 'Nugget', 'Total Wine'].includes(storeChain);
         const useMinGap = ['AVP', 'Ralphs'].includes(storeChain);
-        // New placement detection: zero sales in window AND all delivery dates empty or future
+        // New placement detection: zero sales in 16w window AND every delivery
+        // date is empty, in the future, or within the last ~5 weeks. Handles
+        // Streak-backfilled LDDs that haven't shown up as weekly cases yet.
         const today = new Date(DATA_UPDATED.slice(0, 10));
+        const recentCutoff = new Date(today); recentCutoff.setDate(today.getDate() - 35);
         const allSkusForNewCheck = schemSkus.length ? schemSkus : skus;
         const isNewPlacement = totalCases === 0 && allSkusForNewCheck.every(s => {
             if (!s.lastDelivery || s.lastDelivery === '—') return true;
             const p = s.lastDelivery.split('/');
             let y = parseInt(p[2]); if (y < 100) y += 2000;
-            return new Date(y, parseInt(p[0]) - 1, parseInt(p[1])) > today;
+            return new Date(y, parseInt(p[0]) - 1, parseInt(p[1])) > recentCutoff;
         });
         const hasOverride = HEALTHY_OVERRIDE && HEALTHY_OVERRIDE[name];
 
