@@ -332,7 +332,7 @@ const SKUS = ["Rain", "Tropical Mist", "Pure West", "Diamond Dust", "Rewild", "M
 const SKU_SHORT = ["RN", "TM", "PW", "DD", "RW", "MI", "MD", "WC"];
 const SKU_COLORS = ["#1e3a5f", "#1a5c3a", "#b0b8c1", "#7dd3c8", "#d4a017", "#dc2626", "#ea580c", "#7c3aed"];
 const TOTAL_HISTORY_WEEKS = 29; // full data window for gap computation
-const DATA_UPDATED = "2026-05-12T17:00"; // auto-set by scheduled refresh task
+const DATA_UPDATED = "2026-05-13T06:00"; // auto-set by scheduled refresh task
 
 // Streak CRM box keys — click store name to open in Streak
 const STREAK_PREFIX = "agxzfm1haWxmb29nYWVyMgsSDE9yZ2FuaXphdGlvbiIPcHVyZWJyZXdpbmcub3JnDAsSBENhc2UY";
@@ -822,7 +822,7 @@ function getRepForStore(storeName) {
 // Format: [storeName, [rain_16wk, tm_16wk, pw_16wk, dd_16wk], [rain_realGap, tm_realGap, pw_realGap, dd_realGap]]
 const RAW = [
 ["Albertsons - Downtown SD",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[29,29,6,6,29,29,29,29]],
-["Albertsons - Oceanside - Marron & College",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[2,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[29,29,3,29,29,29,29,29]],
+["Albertsons - Oceanside - Marron & College",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],[2,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[29,0,3,29,29,29,29,29]],
 ["Albertsons - Rancho Bernardo",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,1,2,0,0,0,0],[2,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0],[1,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[29,3,7,4,29,29,29,29]],
 ["Albertsons - San Marcos",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,1,0,0,0,0,0,2,0,0,0],[0,0,1,1,0,0,1,0,0,2,0,0,0,0,2,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[29,2,0,29,29,29,29,29]],
 ["Albertsons - San Marcos - Rancho Santa Fe",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0],[1,0,0,0,0,0,1,2,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[29,29,2,7,29,29,29,29]],
@@ -1393,9 +1393,9 @@ const STORE_REGIONS = {
 // Last delivery dates per store: [Rain, TM, PW, DD] — from Ekos 6-month report
 const LAST_DELIVERY = {
 "Albertsons - Downtown SD":["","","4/2/26","4/2/26","","","",""],
-"Albertsons - Oceanside - Marron & College":["","","4/23/26","","","","",""],
+"Albertsons - Oceanside - Marron & College":["","5/12/26","4/23/26","","","","",""],
 "Albertsons - Rancho Bernardo":["","4/24/26","3/24/26","4/14/26","","","",""],
-"Albertsons - San Marcos":["","4/28/26","5/11/26","","","","",""],
+"Albertsons - San Marcos":["","4/28/26","5/12/26","","","","",""],
 "Albertsons - San Marcos - Rancho Santa Fe":["","","5/1/26","3/24/26","","","",""],
 "Albertsons - San Marcos - Woodland & Mission":["","5/4/26","5/4/26","","","","",""],
 "BevMo - Anaheim Hills":["4/28/26","3/3/26","4/14/26","3/17/26","3/17/26","4/28/26","4/28/26","4/28/26"],
@@ -1485,7 +1485,7 @@ const LAST_DELIVERY = {
 "Del Sur":["4/7/26","4/22/26","4/22/26","3/24/26","","","",""],
 "El Cajon":["4/2/26","5/7/26","4/15/26","5/7/26","","","",""],
 "Encinitas":["5/8/26","4/14/26","5/8/26","4/28/26","","","",""],
-"Escondido":["2/3/26","5/11/26","4/28/26","5/11/26","","","",""],
+"Escondido":["2/3/26","5/12/26","4/28/26","5/12/26","","","",""],
 "Fountain Valley":["3/18/26","4/21/26","4/1/26","3/18/26","","","",""],
 "Fullerton":["4/15/26","4/15/26","4/15/26","4/15/26","","","",""],
 "Garden Grove":["2/10/26","3/24/26","3/24/26","2/10/26","","","",""],
@@ -1541,7 +1541,7 @@ const LAST_DELIVERY = {
 "Pavilions - Valley Centre Dr":["","","4/30/26","4/30/26","","","",""],
 "Point Loma":["4/29/26","4/29/26","4/29/26","4/9/26","","","",""],
 "Poway":["4/29/26","4/29/26","4/29/26","4/29/26","","","",""],
-"Ralphs - Carlsbad":["5/11/26","5/5/26","5/11/26","","","","",""],
+"Ralphs - Carlsbad":["5/12/26","5/5/26","5/12/26","","","","",""],
 "Ralphs - Carmel Mountain":["1/7/26","2/17/26","2/17/26","","","","",""],
 "Ralphs - Del Mar":["2/17/26","3/17/26","1/23/26","","","","",""],
 "Ralphs - Encinitas Bch":["1/7/26","12/10/25","4/28/26","","","","",""],
@@ -1575,7 +1575,7 @@ const LAST_DELIVERY = {
 "Total Wine - Redlands":["","","","","4/7/26","5/12/26","3/10/26","5/12/26"],
 "Total Wine - Redondo Beach":["5/12/26","","","","4/7/26","5/12/26","4/7/26","3/10/26"],
 "Total Wine - San Dimas":["3/10/26","","","","4/7/26","5/13/26","3/10/26","5/13/26"],
-"Total Wine - San Marcos":["3/10/26","5/14/26","5/14/26","5/14/26","5/14/26","5/14/26","4/7/26","5/14/26"],
+"Total Wine - San Marcos":["3/10/26","5/12/26","5/12/26","5/12/26","5/12/26","5/12/26","4/7/26","5/12/26"],
 "Total Wine - Temecula":["5/12/26","","","5/12/26","4/1/26","1/7/26","3/10/26","5/12/26"],
 "Trader Joe's - Carlsbad":["5/7/26","5/7/26","","","","","",""],
 "Trader Joe's - Carmel Mountain":["4/1/26","5/6/26","","","","","",""],
@@ -1600,11 +1600,11 @@ const LAST_DELIVERY = {
 "University City":["4/16/26","4/22/26","5/6/26","4/29/26","","","",""],
 "Vista":["4/16/26","4/16/26","4/16/26","4/16/26","","","",""],
 "Vons - Adams Ave":["","5/7/26","4/30/26","4/30/26","","","",""],
-"Vons - Bernardo Plaza":["","","5/11/26","5/11/26","","","",""],
+"Vons - Bernardo Plaza":["","","5/12/26","5/12/26","","","",""],
 "Vons - Black Mountain Rd":["","","4/14/26","5/19/26","","","",""],
 "Vons - Carlsbad - El Camino Real":["","4/13/26","5/1/26","","","","",""],
 "Vons - Carlsbad - La Costa":["","4/30/26","4/30/26","","","","",""],
-"Vons - Carmel Mountain Rd":["","","5/5/26","5/11/26","","","",""],
+"Vons - Carmel Mountain Rd":["","","5/5/26","5/12/26","","","",""],
 "Vons - Coronado":["","","5/14/26","5/14/26","","","",""],
 "Vons - Encinitas - El Camino Real":["","","4/7/26","4/7/26","","","",""],
 "Vons - Encinitas - Santa Fe":["","4/7/26","4/7/26","","","","",""],
@@ -1667,7 +1667,7 @@ const LAST_DELIVERY = {
 // Schematic set per store: [rain_in, tm_in, pw_in, dd_in] — true = brand IS in schematic
 const SCHEMATIC = {
 "Albertsons - Downtown SD":[false,false,true,true,false,false,false,false],
-"Albertsons - Oceanside - Marron & College":[false,false,true,false,false,false,false,false],
+"Albertsons - Oceanside - Marron & College":[false,true,true,false,false,false,false,false],
 "Albertsons - Rancho Bernardo":[false,true,true,true,false,false,false,false],
 "Albertsons - San Marcos":[false,true,true,false,false,false,false,false],
 "Albertsons - San Marcos - Rancho Santa Fe":[false,false,true,true,false,false,false,false],
