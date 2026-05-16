@@ -334,7 +334,7 @@ const SKU_COLORS = ["#1e3a5f", "#1a5c3a", "#b0b8c1", "#7dd3c8", "#d4a017", "#dc2
 // Sunsip & Grounded are BevMo flex-space placements — shown only on BevMo store cards.
 const BEVMO_FLEX_SKU_IDX = new Set([8, 9]);
 const TOTAL_HISTORY_WEEKS = 29; // full data window for gap computation
-const DATA_UPDATED = "2026-05-15T17:00"; // auto-set by scheduled refresh task
+const DATA_UPDATED = "2026-05-16T08:07"; // auto-set by scheduled refresh task
 
 // Streak CRM box keys — click store name to open in Streak
 const STREAK_PREFIX = "agxzfm1haWxmb29nYWVyMgsSDE9yZ2FuaXphdGlvbiIPcHVyZWJyZXdpbmcub3JnDAsSBENhc2UY";
@@ -474,7 +474,6 @@ const STREAK_BOXES = {
     "Vons - Truxtun Rd": STREAK_PREFIX + "gICl4sSE_AgM",
     // Ralphs — San Diego
     "Ralphs - Carlsbad": STREAK_PREFIX + "gICF97bu0QoM",
-    "Ralphs - Carmel Mountain": STREAK_PREFIX + "gICF97busQgM",
     "Ralphs - Del Mar": STREAK_PREFIX + "gICF97bu0QsM",
     "Ralphs - Encinitas Bch": STREAK_PREFIX + "gICF97bu0QkM",
     "Ralphs - La Jolla": STREAK_PREFIX + "gICFp7fx6woM",
@@ -704,7 +703,6 @@ const STREAK_METRICS = {
 "Pavilions - Valley Centre Dr":["1584.00","9",false],
 "Poway":["4957.80","28",false],
 "Ralphs - Carlsbad":["7743.00","42",false],
-"Ralphs - Carmel Mountain":["2677.50","19",false],
 "Ralphs - Del Mar":["2902.80","20",false],
 "Ralphs - Encinitas Bch":["2283.90","18",false],
 "Ralphs - La Jolla":["4196.70","27",false],
@@ -802,7 +800,7 @@ const STREAK_METRICS = {
 // Sales rep → store mapping for Slack routing
 const STORE_REPS = {
     // Sprouts — San Diego
-    "DJ": { slackId: "U08LL7B7E20", name: "DJ Kantner", stores: ["Carlsbad","Carmel Mountain","Clairemont Drive","Del Sur","El Cajon","Encinitas","Escondido","La Mesa","Lemon Grove","Mira Mesa","Pacific Beach","Poway","Rancho Santa Fe","San Diego - Genesse","San Marcos","Santee","Solana Beach","University City","Albertsons - Downtown SD","Albertsons - Oceanside - Marron & College","Albertsons - Rancho Bernardo","Albertsons - San Marcos","Albertsons - San Marcos - Rancho Santa Fe","Pavilions - Carlsbad","Pavilions - Hillcrest","Pavilions - La Jolla","Pavilions - Valley Centre Dr","Vons - Adams Ave","Vons - Bernardo Plaza","Vons - Black Mountain Rd","Vons - Carlsbad - El Camino Real","Vons - Carlsbad - La Costa","Vons - Carmel Mountain Rd","Vons - Coronado","Vons - Encinitas - El Camino Real","Vons - Encinitas - Santa Fe","Vons - La Mesa","Vons - Midway Dr","Vons - Oceanside","Vons - Regents Rd","Vons - San Diego - 30th St","Vons - San Diego - Balboa Ave","Vons - Scripps Ranch","Vons - Solana Beach","Vons - Truxtun Rd","Ralphs - Carlsbad","Ralphs - Carmel Mountain","Ralphs - Del Mar","Ralphs - Encinitas Bch","Ralphs - La Jolla","Ralphs - Mission Valley","Ralphs - Rancho Bernardo"] },
+    "DJ": { slackId: "U08LL7B7E20", name: "DJ Kantner", stores: ["Carlsbad","Carmel Mountain","Clairemont Drive","Del Sur","El Cajon","Encinitas","Escondido","La Mesa","Lemon Grove","Mira Mesa","Pacific Beach","Poway","Rancho Santa Fe","San Diego - Genesse","San Marcos","Santee","Solana Beach","University City","Albertsons - Downtown SD","Albertsons - Oceanside - Marron & College","Albertsons - Rancho Bernardo","Albertsons - San Marcos","Albertsons - San Marcos - Rancho Santa Fe","Pavilions - Carlsbad","Pavilions - Hillcrest","Pavilions - La Jolla","Pavilions - Valley Centre Dr","Vons - Adams Ave","Vons - Bernardo Plaza","Vons - Black Mountain Rd","Vons - Carlsbad - El Camino Real","Vons - Carlsbad - La Costa","Vons - Carmel Mountain Rd","Vons - Coronado","Vons - Encinitas - El Camino Real","Vons - Encinitas - Santa Fe","Vons - La Mesa","Vons - Midway Dr","Vons - Oceanside","Vons - Regents Rd","Vons - San Diego - 30th St","Vons - San Diego - Balboa Ave","Vons - Scripps Ranch","Vons - Solana Beach","Vons - Truxtun Rd","Ralphs - Carlsbad","Ralphs - Del Mar","Ralphs - Encinitas Bch","Ralphs - La Jolla","Ralphs - Mission Valley","Ralphs - Rancho Bernardo"] },
     // Sprouts — OC + WFM OC + Mother's OC
     "Michael": { slackId: "U08V2R3MXS6", name: "Michael Backer", stores: ["Costa Mesa","Fountain Valley","Garden Grove","Huntington Beach - Adams","Irvine","La Habra","Laguna Niguel","Lake Forest","Mission Viejo","Orange","San Clemente","Tustin - Holt","Tustin - Jamboree","Whole Foods - Brea","Whole Foods - Brookhurst","Whole Foods - Huntington Beach","Whole Foods - Irvine","Whole Foods - Jamboree","Whole Foods - Laguna Beach","Whole Foods - Laguna Niguel LGN","Whole Foods - Newport Beach","Mother's - Anaheim Hills","Mother's - Brea","Mother's - Corona Del Mar","Mother's - Costa Mesa","Mother's - Irvine","Mother's - Laguna Woods","Mother's - Santa Ana","Mother's - Sunset Beach","Bristol Farms - Newport Beach","Bristol Farms - Yorba Linda","Lazy Acres - Hermosa Beach","BevMo - Anaheim Hills","BevMo - Costa Mesa","BevMo - Cypress","BevMo - Dana Point","BevMo - Huntington Beach","BevMo - Irvine","BevMo - Ladera Ranch","BevMo - Laguna Niguel","BevMo - Lake Forest","BevMo - Orange","BevMo - Rancho Santa Margarita","BevMo - Whittier","Total Wine - Brea","Total Wine - Huntington","Total Wine - Laguna Hills","Total Wine - Market Place Tustin"] },
     // WFM — OC/Ventura/Palm Desert + TJ + Nugget + NorCal/Central BevMo
@@ -973,7 +971,6 @@ const RAW = [
 ["Point Loma",[[0,0,0,0,0,0,0,0,0,2,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,2,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,2,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[2,2,2,5,29,29,29,29,29,29]],
 ["Poway",[[0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,1,0,2,0,0,1,0,0,1,0,0,0],[0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[2,2,2,2,29,29,29,29,29,29]],
 ["Ralphs - Carlsbad",[[1,0,1,0,1,0,1,1,1,0,1,0,1,0,1,0],[1,0,1,0,1,0,1,1,0,1,1,0,1,1,0,0],[2,0,1,2,1,0,2,1,2,2,2,0,2,1,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[0,1,0,29,29,29,29,29,29,29]],
-["Ralphs - Carmel Mountain",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[18,12,12,29,29,29,29,29,29,29]],
 ["Ralphs - Del Mar",[[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,2,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[12,8,16,29,29,29,29,29,29,29]],
 ["Ralphs - Encinitas Bch",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[2,0,0,0,0,0,2,0,0,2,0,0,2,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[18,22,2,29,29,29,29,29,29,29]],
 ["Ralphs - La Jolla",[[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,2,0,0,2,0,0,0],[1,0,0,0,0,2,0,0,2,0,0,0,2,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[14,2,2,29,29,29,29,29,29,29]],
@@ -1247,7 +1244,6 @@ const PENDING = {
 "Point Loma":false,
 "Poway":false,
 "Ralphs - Carlsbad":false,
-"Ralphs - Carmel Mountain":false,
 "Ralphs - Del Mar":false,
 "Ralphs - Encinitas Bch":false,
 "Ralphs - La Jolla":false,
@@ -1379,7 +1375,7 @@ const STORE_REGIONS = {
 "Mother's - Anaheim Hills":"OC","Mother's - Brea":"OC","Mother's - Corona Del Mar":"OC","Mother's - Costa Mesa":"OC","Mother's - Dana Point":"OC","Mother's - Hollywood":"LA","Mother's - Irvine":"OC","Mother's - Laguna Woods":"OC","Mother's - Santa Ana":"OC","Mother's - Signal Hill":"OC","Mother's - Sunset Beach":"OC",
 "North Park":"SD","Norwalk":"OC","Oceanside":"SD","Orange":"OC","Pacific Beach":"SD",
 "Pavilions - Carlsbad":"SD","Pavilions - Hillcrest":"SD","Pavilions - La Jolla":"SD","Pavilions - Valley Centre Dr":"SD","Point Loma":"SD","Poway":"SD",
-"Ralphs - Carlsbad":"SD","Ralphs - Carmel Mountain":"SD","Ralphs - Del Mar":"SD","Ralphs - Encinitas Bch":"SD","Ralphs - La Jolla":"SD","Ralphs - Mission Valley":"SD","Ralphs - Rancho Bernardo":"SD",
+"Ralphs - Carlsbad":"SD","Ralphs - Del Mar":"SD","Ralphs - Encinitas Bch":"SD","Ralphs - La Jolla":"SD","Ralphs - Mission Valley":"SD","Ralphs - Rancho Bernardo":"SD",
 "Rancho Bernardo":"SD","Rancho Santa Fe":"SD","Redondo Beach":"LA","San Clemente":"OC","San Diego - Genesse":"SD","San Marcos":"SD","San Pedro":"LA","Santee":"SD","Savi Ranch":"OC","Seal Beach":"OC","Solana Beach":"SD","Torrance":"LA",
 "Trader Joe's - Carlsbad":"SD","Trader Joe's - Carmel Mountain":"SD","Trader Joe's - Chula Vista":"SD","Trader Joe's - Del Mar":"SD","Trader Joe's - Encinitas":"SD","Trader Joe's - Escondido":"SD","Trader Joe's - Hillcrest":"SD","Trader Joe's - La Jolla":"SD","Trader Joe's - La Mesa":"SD","Trader Joe's - Mission Valley":"SD","Trader Joe's - Oceanside":"SD","Trader Joe's - Pacific Beach":"SD","Trader Joe's - Point Loma":"SD","Trader Joe's - Poway":"SD","Trader Joe's - SDSU":"SD","Trader Joe's - Santee":"SD","Trader Joe's - Scripps Ranch":"SD","Trader Joe's - Vista":"SD",
 "Tustin - Holt":"OC","Tustin - Jamboree":"OC","University City":"SD","Vista":"SD",
@@ -1515,7 +1511,7 @@ const LAST_DELIVERY = {
 "Mother's - Brea":["","2/24/26","2/24/26","2/24/26","2/24/26","","","","",""],
 "Mother's - Corona Del Mar":["","2/24/26","2/24/26","2/24/26","","","","","",""],
 "Mother's - Costa Mesa":["2/27/26","3/25/26","5/13/26","4/21/26","3/25/26","","","","",""],
-"Mother's - Dana Point":["","5/12/2026","5/12/2026","5/12/2026","","","","","",""],
+"Mother's - Dana Point":["","","","","","","","","",""],
 "Mother's - Hollywood":["4/29/26","4/29/26","2/24/26","4/29/26","2/24/26","","","","",""],
 "Mother's - Irvine":["","4/15/26","4/15/26","4/15/26","4/15/26","","","","",""],
 "Mother's - Laguna Woods":["","2/24/26","2/24/26","2/24/26","","","","","",""],
@@ -1544,7 +1540,6 @@ const LAST_DELIVERY = {
 "Point Loma":["4/29/26","4/29/26","4/29/26","4/9/26","","","","","",""],
 "Poway":["4/29/26","4/29/26","4/29/26","4/29/26","","","","","",""],
 "Ralphs - Carlsbad":["5/12/26","5/5/26","5/12/26","","","","","","",""],
-"Ralphs - Carmel Mountain":["1/7/26","2/17/26","2/17/26","","","","","","",""],
 "Ralphs - Del Mar":["2/17/26","3/17/26","1/23/26","","","","","","",""],
 "Ralphs - Encinitas Bch":["1/7/26","12/10/25","4/28/26","","","","","","",""],
 "Ralphs - La Jolla":["2/5/26","4/30/26","4/30/26","","","","","","",""],
@@ -1818,12 +1813,11 @@ const SCHEMATIC = {
 "Point Loma":[true,true,true,true,false,false,false,false,false,false],
 "Poway":[true,true,true,true,false,false,false,false,false,false],
 "Ralphs - Carlsbad":[true,true,true,false,false,false,false,false,false,false],
-"Ralphs - Carmel Mountain":[true,true,true,false,false,false,false,false,false,false],
-"Ralphs - Del Mar":[true,true,true,false,false,false,false,false,false,false],
-"Ralphs - Encinitas Bch":[true,true,true,false,false,false,false,false,false,false],
-"Ralphs - La Jolla":[true,true,true,false,false,false,false,false,false,false],
-"Ralphs - Mission Valley":[true,true,true,false,false,false,false,false,false,false],
-"Ralphs - Rancho Bernardo":[true,true,true,false,false,false,false,false,false,false],
+"Ralphs - Del Mar":[false,true,false,false,false,false,false,false,false,false],
+"Ralphs - Encinitas Bch":[false,true,false,false,false,false,false,false,false,false],
+"Ralphs - La Jolla":[false,true,true,false,false,false,false,false,false,false],
+"Ralphs - Mission Valley":[false,false,true,false,false,false,false,false,false,false],
+"Ralphs - Rancho Bernardo":[false,true,false,false,false,false,false,false,false,false],
 "Rancho Bernardo":[true,true,true,true,false,false,false,false,false,false],
 "Rancho Santa Fe":[true,true,true,true,false,false,false,false,false,false],
 "Redondo Beach":[false,false,true,true,false,false,false,false,false,false],
@@ -2092,7 +2086,6 @@ const HEALTHY_OVERRIDE = {
 "Point Loma":true,
 "Poway":false,
 "Ralphs - Carlsbad":false,
-"Ralphs - Carmel Mountain":false,
 "Ralphs - Del Mar":false,
 "Ralphs - Encinitas Bch":false,
 "Ralphs - La Jolla":false,
@@ -2366,7 +2359,6 @@ const CHAIN = {
 "Point Loma":"Sprouts",
 "Poway":"Sprouts",
 "Ralphs - Carlsbad":"Ralphs",
-"Ralphs - Carmel Mountain":"Ralphs",
 "Ralphs - Del Mar":"Ralphs",
 "Ralphs - Encinitas Bch":"Ralphs",
 "Ralphs - La Jolla":"Ralphs",
