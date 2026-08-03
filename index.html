@@ -333,9 +333,13 @@ const SKU_SHORT = ["RN", "TM", "PW", "DD", "RW", "MI", "MD", "WC", "SS", "GD", "
 const SKU_COLORS = ["#1e3a5f", "#1a5c3a", "#b0b8c1", "#7dd3c8", "#d4a017", "#dc2626", "#ea580c", "#7c3aed", "#ec4899", "#78350f", "#a3b91a"];
 // Chain-specific SKUs — rendered only on their assigned chain's store cards.
 const BEVMO_FLEX_SKU_IDX = new Set([8, 9]);    // Sunsip / Grounded  → BevMo cards only
-const TJ_FLEX_SKU_IDX = new Set([10]);          // I Choose Yuzu       → Trader Joe's cards only
+const YUZU_FLEX_SKU_IDX = new Set([10]);        // I Choose Yuzu → any chain in YUZU_FLEX_CHAINS
+// Chains where I Choose Yuzu is treated as flex-space (deliveries render as a
+// data row when the store has bought it; collapse into the Opportunity line
+// when not). Add a chain here when tracked stores in it start buying Yuzu.
+const YUZU_FLEX_CHAINS = new Set(["Trader Joe's", "Whole Foods", "Bristol / Lazy", "Nugget"]);
 const TOTAL_HISTORY_WEEKS = 28; // full data window for gap computation
-const DATA_UPDATED = "2026-08-03T15:00"; // auto-set by scheduled refresh task
+const DATA_UPDATED = "2026-08-03T16:00"; // auto-set by scheduled refresh task
 
 // Streak CRM box keys — click store name to open in Streak
 const STREAK_PREFIX = "agxzfm1haWxmb29nYWVyMgsSDE9yZ2FuaXphdGlvbiIPcHVyZWJyZXdpbmcub3JnDAsSBENhc2UY";
@@ -962,7 +966,7 @@ const RAW = [
 ["Nugget Market - Sacramento - Florin",[[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[5,5,28,17,17,1,2,1,28,28,28]],
 ["Nugget Market - Town Center",[[1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,0,0,1,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[4,8,14,4,28,4,28,11,28,28,28]],
 ["Nugget Market - Vacaville",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[28,28,28,28,28,17,3,3,28,28,28]],
-["Oceanside",[[0,0,1,0,1,0,1,1,1,1,0,1,1,1,0,0],[0,0,1,1,0,0,1,0,1,1,0,0,1,0,0,0],[0,1,0,1,0,0,0,0,1,1,0,0,0,0,0,0],[0,1,0,0,1,0,0,1,1,2,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[1,2,5,1,28,28,28,28,28,28,28]],
+["Oceanside",[[0,0,1,0,1,0,1,1,1,1,0,1,1,1,0,0],[0,0,1,1,0,0,1,0,1,1,0,0,1,0,1,0],[0,1,0,1,0,0,0,0,1,1,0,0,0,0,0,0],[0,1,0,0,1,0,0,1,1,2,0,0,0,1,1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[1,0,5,0,28,28,28,28,28,28,28]],
 ["Orange",[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[15,28,3,3,28,28,28,28,28,28,28]],
 ["Pacific Beach",[[0,0,1,0,1,0,0,1,1,0,0,0,2,0,0,0],[0,0,2,0,0,0,0,1,0,0,0,0,0,1,0,0],[0,0,1,0,1,1,0,0,1,0,0,0,0,2,0,0],[0,0,1,0,0,1,0,0,1,0,0,0,0,2,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[2,1,1,1,28,28,28,28,28,28,28]],
 ["Pavilions - Carlsbad",[[0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,2,0,0,0,0,1,2,0,0,0,0,0,2,0],[1,0,2,3,0,0,0,2,2,0,0,0,0,0,2,0],[0,0,2,3,0,0,0,0,2,0,0,2,0,0,3,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],[12,0,0,0,28,28,28,28,28,28,28]],
@@ -1561,7 +1565,7 @@ const LAST_DELIVERY = {
 "Nugget Market - Sacramento - Florin":["7/1/26","7/1/26","","4/8/26","4/8/26","7/30/26","7/23/26","7/30/26","","",""],
 "Nugget Market - Town Center":["7/9/26","6/11/26","4/29/26","7/9/26","","7/9/26","","5/21/26","","",""],
 "Nugget Market - Vacaville":["","","","","","4/8/26","7/16/26","7/16/26","","",""],
-"Oceanside":["7/28/26","7/21/26","7/2/26","7/28/26","","","","","","",""],
+"Oceanside":["7/28/26","8/4/26","7/2/26","8/4/26","","","","","","",""],
 "Orange":["4/22/26","","7/15/26","7/15/26","","","","","","",""],
 "Pacific Beach":["7/23/26","7/30/26","7/30/26","7/30/26","","","","","","",""],
 "Pavilions - Carlsbad":["5/12/26","8/4/26","8/4/26","8/4/26","","","","","","",""],
@@ -2645,10 +2649,13 @@ function processStores(raw, weekCount) {
         // New placement detection: zero sales in 16w window AND every delivery
         // date is empty, in the future, or within the last ~5 weeks. Handles
         // Streak-backfilled LDDs that haven't shown up as weekly cases yet.
+        // Check ALL skus (not just schematic) so a store with an old LDD in a
+        // non-schematic SKU isn't misclassified as new — otherwise a store like
+        // Fairfax (schematic=[Rain only], Rain never delivered, TM last shipped
+        // months ago) would falsely pass this check via schemSkus alone.
         const today = new Date(DATA_UPDATED.slice(0, 10));
         const recentCutoff = new Date(today); recentCutoff.setDate(today.getDate() - 35);
-        const allSkusForNewCheck = schemSkus.length ? schemSkus : skus;
-        const isNewPlacement = totalCases === 0 && allSkusForNewCheck.every(s => {
+        const isNewPlacement = totalCases === 0 && skus.every(s => {
             if (!s.lastDelivery || s.lastDelivery === '—') return true;
             const p = s.lastDelivery.split('/');
             let y = parseInt(p[2]); if (y < 100) y += 2000;
@@ -2788,7 +2795,7 @@ function renderStoreCards(stores) {
             .map((sku, idx) => ({sku, idx}))
             .filter(({idx}) => {
                 if (BEVMO_FLEX_SKU_IDX.has(idx)) return store.chain === 'BevMo';        // Sunsip/Grounded: BevMo cards only
-                if (TJ_FLEX_SKU_IDX.has(idx)) return store.chain === "Trader Joe's";     // I Choose Yuzu: TJ cards only
+                if (YUZU_FLEX_SKU_IDX.has(idx)) return YUZU_FLEX_CHAINS.has(store.chain); // I Choose Yuzu: flex-space chains only
                 if (store.chain === 'Sprouts') return idx < 4;                           // Sprouts: Rain/TM/PW/DD only
                 if (store.chain === "Trader Joe's" || store.chain === 'AVP' || store.chain === 'Ralphs') return storeSchematic[idx]; // TJ/AVP/Ralphs: schematic SKUs only
                 return true;
@@ -2910,7 +2917,7 @@ function renderTable(stores) {
     const tbody = document.getElementById('tableBody');
     tbody.innerHTML = stores.map(s => {
         // Detail table tracks the core SKU columns only — chain-specific SKUs (Sunsip/Grounded, Yuzu) are card-only.
-        const tableSkus = s.skus.filter((_, i) => !BEVMO_FLEX_SKU_IDX.has(i) && !TJ_FLEX_SKU_IDX.has(i));
+        const tableSkus = s.skus.filter((_, i) => !BEVMO_FLEX_SKU_IDX.has(i) && !YUZU_FLEX_SKU_IDX.has(i));
         const skuTotals = tableSkus.map(sk => sk.total);
         const lastWeekIdx = Math.max(...tableSkus.map(sk => sk.lastOrderIdx));
         const lastWeek = lastWeekIdx >= 0 ? visWeeks[lastWeekIdx] : '—';
