@@ -337,9 +337,12 @@ const YUZU_FLEX_SKU_IDX = new Set([10]);        // I Choose Yuzu → any chain i
 // Chains where I Choose Yuzu is treated as flex-space (deliveries render as a
 // data row when the store has bought it; collapse into the Opportunity line
 // when not). Add a chain here when tracked stores in it start buying Yuzu.
-const YUZU_FLEX_CHAINS = new Set(["Trader Joe's", "Whole Foods", "Bristol / Lazy", "Nugget"]);
+// WFM is intentionally NOT in this set — I Choose Yuzu is not on their approved
+// brand list, so any WFM Yuzu deliveries (e.g. Porter Ranch anomaly) are hidden
+// on the card entirely, not surfaced as an Opportunity.
+const YUZU_FLEX_CHAINS = new Set(["Trader Joe's", "Bristol / Lazy", "Nugget"]);
 const TOTAL_HISTORY_WEEKS = 28; // full data window for gap computation
-const DATA_UPDATED = "2026-08-03T16:00"; // auto-set by scheduled refresh task
+const DATA_UPDATED = "2026-08-03T17:00"; // auto-set by scheduled refresh task
 
 // Streak CRM box keys — click store name to open in Streak
 const STREAK_PREFIX = "agxzfm1haWxmb29nYWVyMgsSDE9yZ2FuaXphdGlvbiIPcHVyZWJyZXdpbmcub3JnDAsSBENhc2UY";
