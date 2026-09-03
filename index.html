@@ -342,7 +342,7 @@ const YUZU_FLEX_SKU_IDX = new Set([10]);        // I Choose Yuzu → any chain i
 // on the card entirely, not surfaced as an Opportunity.
 const YUZU_FLEX_CHAINS = new Set(["Trader Joe's", "Bristol / Lazy", "Nugget"]);
 const TOTAL_HISTORY_WEEKS = 29; // full data window for gap computation
-const DATA_UPDATED = "2026-09-02T16:00"; // auto-set by scheduled refresh task
+const DATA_UPDATED = "2026-09-02T17:00"; // auto-set by scheduled refresh task
 
 // Streak CRM box keys — click store name to open in Streak
 const STREAK_PREFIX = "agxzfm1haWxmb29nYWVyMgsSDE9yZ2FuaXphdGlvbiIPcHVyZWJyZXdpbmcub3JnDAsSBENhc2UY";
@@ -665,7 +665,7 @@ const STREAK_METRICS = {
 "Clairemont Drive":["10186.80","38",false],
 "Costa Mesa":["1801.80","10",false],
 "Del Sur":["3539.70","17",false],
-"El Cajon":["3064.20","18",false],
+"El Cajon":["","",false],
 "Encinitas":["4968.30","26",false],
 "Escondido":["3738.60","19",false],
 "Fountain Valley":["1437.00","9",false],
@@ -684,7 +684,7 @@ const STREAK_METRICS = {
 "Mira Mesa":["3915.30","21",false],
 "Mission Viejo":["5915.10","34",false],
 "Mother's - Anaheim Hills":["430.20","2",false],
-"Mother's - Brea":["328.20","1",true],
+"Mother's - Brea":["","",false],
 "Mother's - Corona Del Mar":["430.20","2",false],
 "Mother's - Costa Mesa":["1402.20","6",false],
 "Mother's - Dana Point":["2190.00","7",false],
@@ -735,7 +735,7 @@ const STREAK_METRICS = {
 "Trader Joe's - Oceanside":["12971.40","47",false],
 "Trader Joe's - Pacific Beach":["12817.80","42",false],
 "Trader Joe's - Point Loma":["9966.30","37",false],
-"Trader Joe's - Poway":["5118.90","17",false],
+"Trader Joe's - Poway":["","",false],
 "Trader Joe's - SDSU":["4476.00","26",false],
 "Trader Joe's - Santee":["6842.40","33",false],
 "Trader Joe's - Scripps Ranch":["11642.40","45",false],
@@ -1552,7 +1552,7 @@ const LAST_DELIVERY = {
 "Mira Mesa":["6/25/26","9/2/26","9/2/26","9/2/26","","","","","","",""],
 "Mission Viejo":["9/2/26","9/2/26","8/12/26","7/8/26","","","","","","",""],
 "Mother's - Anaheim Hills":["","","7/21/26","7/21/26","","","","","","",""],
-"Mother's - Brea":["","2/24/2026","2/24/2026","2/24/2026","2/24/2026","","","","","",""],
+"Mother's - Brea":["","","","","","","","","","",""],
 "Mother's - Corona Del Mar":["","","7/10/26","7/10/26","","","","","","",""],
 "Mother's - Costa Mesa":["7/17/26","7/17/26","7/17/26","8/21/26","8/21/26","","","","","",""],
 "Mother's - Dana Point":["","8/21/26","9/4/26","8/21/26","","","","","","",""],
