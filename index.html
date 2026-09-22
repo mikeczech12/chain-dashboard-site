@@ -342,7 +342,7 @@ const YUZU_FLEX_SKU_IDX = new Set([10]);        // I Choose Yuzu → any chain i
 // on the card entirely, not surfaced as an Opportunity.
 const YUZU_FLEX_CHAINS = new Set(["Trader Joe's", "Bristol / Lazy", "Nugget"]);
 const TOTAL_HISTORY_WEEKS = 32; // full data window for gap computation
-const DATA_UPDATED = "2026-09-22T15:00"; // auto-set by scheduled refresh task
+const DATA_UPDATED = "2026-09-22T16:00"; // auto-set by scheduled refresh task
 
 // Streak CRM box keys — click store name to open in Streak
 const STREAK_PREFIX = "agxzfm1haWxmb29nYWVyMgsSDE9yZ2FuaXphdGlvbiIPcHVyZWJyZXdpbmcub3JnDAsSBENhc2UY";
@@ -585,7 +585,7 @@ const STREAK_METRICS = {
 "Albertsons - Oceanside - Marron & College":["1715.70","16",false],
 "Albertsons - Rancho Bernardo":["3795.00","18",false],
 "Albertsons - San Marcos":["3648.30","22",false],
-"Albertsons - San Marcos - Rancho Santa Fe":["1845.90","12",false],
+"Albertsons - San Marcos - Rancho Santa Fe":["","",false],
 "BevMo - Anaheim Hills":["3541.50","17",false],
 "BevMo - Camarillo":["3159.90","15",false],
 "BevMo - Carlsbad":["22483.20","52",false],
@@ -1435,11 +1435,11 @@ const STORE_REGIONS = {
 // Last delivery dates per store: [Rain, TM, PW, DD] — from Ekos 6-month report
 const LAST_DELIVERY = {
 "Albertsons - Downtown SD":["","","7/23/26","8/6/26","","","","","","",""],
-"Albertsons - Oceanside - Marron & College":["","9/15/26","9/15/26","","","","","","","",""],
+"Albertsons - Oceanside - Marron & College":["","9/15/26","9/15/26","","","","","","10/8/26","10/8/26",""],
 "Albertsons - Rancho Bernardo":["","9/1/26","9/1/26","9/15/26","","","","","","",""],
 "Albertsons - San Marcos":["","9/29/26","9/29/26","","","","","","","",""],
 "Albertsons - San Marcos - Rancho Santa Fe":["","","8/25/26","8/25/26","","","","","","",""],
-"Albertsons - San Marcos - Woodland & Mission":["","7/27/26","9/3/26","","","","","","","",""],
+"Albertsons - San Marcos - Woodland & Mission":["","7/27/26","9/3/26","","","","","","10/6/26","10/6/26",""],
 "BevMo - Anaheim Hills":["9/1/26","6/10/26","6/10/26","9/15/26","3/17/26","4/28/26","9/15/26","4/28/26","","",""],
 "BevMo - Camarillo":["9/23/26","9/1/26","8/19/26","9/9/26","3/4/26","7/7/26","","9/23/26","","",""],
 "BevMo - Carlsbad":["8/18/26","8/18/26","9/22/26","8/18/26","9/22/26","9/1/26","9/15/26","9/22/26","8/18/26","9/22/26",""],
@@ -1579,7 +1579,7 @@ const LAST_DELIVERY = {
 "Oceanside":["9/1/26","9/22/26","9/22/26","9/22/26","","","","","","",""],
 "Orange":["9/15/26","9/15/26","9/15/26","9/15/26","","","","","","",""],
 "Pacific Beach":["7/23/26","9/11/26","9/3/26","9/11/26","","","","","","",""],
-"Pavilions - Carlsbad":["9/22/26","8/4/26","9/22/26","9/22/26","","","","","","",""],
+"Pavilions - Carlsbad":["9/22/26","8/4/26","9/22/26","10/5/26","","","","","10/5/26","10/5/26",""],
 "Pavilions - Hillcrest":["","9/10/26","9/10/26","","","","","","","",""],
 "Pavilions - La Jolla":["","9/3/26","9/3/26","9/3/26","","","","","","",""],
 "Pavilions - San Clemente - Ave Pico":["","9/4/26","9/4/26","9/4/26","","","","","","",""],
@@ -1726,11 +1726,11 @@ const LAST_DELIVERY = {
 // Schematic set per store: [rain_in, tm_in, pw_in, dd_in] — true = brand IS in schematic
 const SCHEMATIC = {
 "Albertsons - Downtown SD":[false,false,true,true,false,false,false,false,false,false,false],
-"Albertsons - Oceanside - Marron & College":[false,true,true,false,false,false,false,false,false,false,false],
+"Albertsons - Oceanside - Marron & College":[false,true,true,false,false,false,false,false,true,true,false],
 "Albertsons - Rancho Bernardo":[false,true,true,true,false,false,false,false,false,false,false],
 "Albertsons - San Marcos":[false,true,true,false,false,false,false,false,false,false,false],
 "Albertsons - San Marcos - Rancho Santa Fe":[false,false,true,true,false,false,false,false,false,false,false],
-"Albertsons - San Marcos - Woodland & Mission":[false,true,true,false,false,false,false,false,false,false,false],
+"Albertsons - San Marcos - Woodland & Mission":[false,true,true,false,false,false,false,false,true,true,false],
 "BevMo - Anaheim Hills":[false,false,false,false,false,false,false,false,false,false,false],
 "BevMo - Camarillo":[false,false,false,false,false,false,false,false,false,false,false],
 "BevMo - Carlsbad":[false,false,false,false,false,false,false,false,false,false,false],
@@ -1870,7 +1870,7 @@ const SCHEMATIC = {
 "Oceanside":[true,true,true,true,false,false,false,false,false,false,false],
 "Orange":[true,true,true,true,false,false,false,false,false,false,false],
 "Pacific Beach":[true,true,true,true,false,false,false,false,false,false,false],
-"Pavilions - Carlsbad":[true,true,true,true,false,false,false,false,false,false,false],
+"Pavilions - Carlsbad":[true,true,true,true,false,false,false,false,true,true,false],
 "Pavilions - Hillcrest":[false,true,true,false,false,false,false,false,false,false,false],
 "Pavilions - La Jolla":[false,true,true,true,false,false,false,false,false,false,false],
 "Pavilions - San Clemente - Ave Pico":[false,true,true,true,false,false,false,false,false,false,false],
