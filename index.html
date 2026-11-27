@@ -375,7 +375,7 @@ const YUZU_FLEX_SKU_IDX = new Set([10, 11]);    // I Choose Yuzu / Alpine Afterg
 // on the card entirely, not surfaced as an Opportunity.
 const YUZU_FLEX_CHAINS = new Set(["Trader Joe's", "Bristol / Lazy", "Nugget"]);
 const TOTAL_HISTORY_WEEKS = 34; // full data window for gap computation
-const DATA_UPDATED = "2026-11-27T11:00"; // auto-set by scheduled refresh task
+const DATA_UPDATED = "2026-11-27T12:00"; // auto-set by scheduled refresh task
 
 // Streak CRM box keys — click store name to open in Streak
 const STREAK_PREFIX = "agxzfm1haWxmb29nYWVyMgsSDE9yZ2FuaXphdGlvbiIPcHVyZWJyZXdpbmcub3JnDAsSBENhc2UY";
@@ -716,7 +716,7 @@ const STREAK_METRICS = {
 "Costa Mesa":["1494.60","9",true],
 "Del Sur":["3942.60","20",false],
 "El Cajon":["3072.60","17",false],
-"Encinitas":["","",false],
+"Encinitas":["5110.20","28",false],
 "Escondido":["3132.60","17",false],
 "Fountain Valley":["1121.40","8",true],
 "Garden Grove":["903.60","5",true],
@@ -728,7 +728,7 @@ const STREAK_METRICS = {
 "Lake Forest":["1184.40","8",true],
 "Lazy Acres - Encinitas":["23750.70","37",false],
 "Lazy Acres - Hermosa Beach":["426.00","3",false],
-"Lazy Acres - Hillcrest":["","",false],
+"Lazy Acres - Hillcrest":["13504.35","33",false],
 "Lazy Acres - Long Beach":["1067.40","8",false],
 "Lemon Grove":["2729.40","15",false],
 "Mira Mesa":["4526.40","22",false],
@@ -2112,7 +2112,7 @@ const LAST_DELIVERY = {
 "Total Wine - San Marcos":["11/13/26","11/13/26","11/13/26","11/13/26","11/13/26","10/13/26","11/13/26","11/13/26","11/13/26","11/13/26","",""],
 "Total Wine - Temecula":["10/16/26","8/11/26","10/16/26","11/13/26","11/13/26","","10/16/26","10/16/26","","","",""],
 "Trader Joe's - Aliso Viejo":["11/3/26","11/17/26","","","","","","","","","8/12/26","11/17/26"],
-"Trader Joe's - Carlsbad":["11/19/26","11/26/26","","","","","","","","","7/23/26","11/26/26"],
+"Trader Joe's - Carlsbad":["11/19/26","11/27/26","","","","","","","","","7/23/26","11/27/26"],
 "Trader Joe's - Carmel Mountain":["10/29/26","11/19/26","","","","","","","","","9/2/26","11/19/26"],
 "Trader Joe's - Chula Vista":["","5/7/26","","","","","","","","","",""],
 "Trader Joe's - Costa Mesa - 17th":["8/21/26","8/21/26","","","","","","","","","8/14/26",""],
@@ -2132,7 +2132,7 @@ const LAST_DELIVERY = {
 "Trader Joe's - Laguna Niguel":["9/30/26","9/30/26","","","","","","","","","8/26/26",""],
 "Trader Joe's - Mission Valley":["11/27/26","11/27/26","","","","","","","","","9/2/26","11/27/26"],
 "Trader Joe's - Mission Viejo":["11/3/26","11/3/26","","","","","","","","","9/2/26","11/17/26"],
-"Trader Joe's - Oceanside":["11/26/26","11/26/26","","","","","","","","","8/20/26","11/26/26"],
+"Trader Joe's - Oceanside":["11/27/26","11/27/26","","","","","","","","","8/20/26","11/27/26"],
 "Trader Joe's - Pacific Beach":["11/27/26","11/27/26","","","","","","","","","9/2/26","11/27/26"],
 "Trader Joe's - Point Loma":["11/27/26","11/6/26","","","","","","","","","8/12/26","11/27/26"],
 "Trader Joe's - Poway":["10/29/26","11/19/26","","","","","","","","","8/12/26","11/19/26"],
@@ -2143,7 +2143,7 @@ const LAST_DELIVERY = {
 "Trader Joe's - Santee":["11/27/26","11/27/26","","","","","","","","","8/26/26","11/27/26"],
 "Trader Joe's - Scripps Ranch":["11/13/26","11/27/26","","","","","","","","","9/2/26","11/27/26"],
 "Trader Joe's - Tustin":["11/5/26","11/5/26","","","","","","","","","8/28/26","11/5/26"],
-"Trader Joe's - Vista":["10/29/26","11/26/26","","","","","","","","","8/6/26","11/26/26"],
+"Trader Joe's - Vista":["10/29/26","11/27/26","","","","","","","","","8/6/26","11/27/26"],
 "Tustin - Holt":["11/5/26","7/15/26","11/5/26","10/14/26","","","","","","","",""],
 "Tustin - Jamboree":["11/18/26","11/18/26","10/14/26","10/14/26","","","","","","","",""],
 "University City":["11/25/26","11/18/26","11/25/26","11/25/26","","","","","","","",""],
